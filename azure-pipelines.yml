@@ -11,7 +11,24 @@ pool:
   demands:
    - Agent.Name -equals slazerdevops01
 
+variables:
+  javaHome: '/opt/cicd-tools/' # Specify the desired installation
+
 steps:
+- task: UseJavaVersion@0
+  inputs:
+    versionSpec: '11' # Use the desired Java version
+    addToPath: false  # Do not automatically add Java to the PATH
+
+- script: |
+    echo "##vso[task.setvariable variable=JAVA_HOME]$JAVA_HOME"
+    echo "##vso[task.prependpath]$JAVA_HOME/bin"
+  displayName: 'Set JAVA_HOME and add to PATH'
+
+- task: MavenInstaller@1
+  inputs:
+    mavenVersionOption: 'Path'
+    mavenDownloadPath: '/opt/cicd-tools/' # Specify the desired installation path
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
