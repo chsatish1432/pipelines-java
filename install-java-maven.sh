@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 # Install Java
 sudo apt-get update
