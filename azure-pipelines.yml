@@ -7,7 +7,9 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'MAVERICK'
+  demands:
+   - Agent.Name -equals slazerdevops01
 
 steps:
 - task: Maven@3
