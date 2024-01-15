@@ -10,7 +10,6 @@ pool:
   name: 'MAVERIK'
   demands:
    - Agent.Name -equals slazerdevops01
-   - Agent.Version -equals 3.232.1
 
 steps:
 - task: Maven@3
