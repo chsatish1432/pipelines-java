@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: 'MAVERIK'
+  name: 'MAVERICK'
   demands:
    - Agent.Name -equals slazerdevops01
 
